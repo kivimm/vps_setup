@@ -1,34 +1,51 @@
-## 一键安装wireguard 脚本 For Debian_9  Ubuntu  Centos_7
-```
-# 一键安装wireguard 脚本 Debian 9 (源:逗比网安装笔记)
-wget -qO- git.io/fptwc | bash
+## 一键安装 WireGuard Shadowsocks V2Ray 服务端三合一脚本 [IPV6](https://github.com/hongwenjun/vps_setup/blob/master/ipv6/README.md)
+    bash <(curl -L -s https://git.io/vps.sh)
+    # curl脚本可以使用菜单，方便选择 # wget脚本是静默安装 # 目前 WireGuard 脚本支持 IPV6，稳定有待测试
+    # wget -qO- git.io/vps.sh | bash
 
-# 一键安装wireguard 脚本 Ubuntu   (源:逗比网安装笔记)
-wget -qO- git.io/fpcnL | bash
+- [蘭雅sRGB![](https://raw.githubusercontent.com/hongwenjun/vps_setup/master/img/youtube.png)频道](https://www.youtube.com/channel/UCupRwki_4n87nrwP0GIBUXA/videos) &nbsp;&nbsp;&nbsp;可以观看相关脚本工具的演示视频!
 
-# CentOS 7 一键脚本安装WireGuard  (官方脚本自动升级内核)
-wget -qO- git.io/fhnhS | bash
-```
-## 严重声明：
-此项目仅限于技术交流和探讨，在您测试完毕后必须在1秒钟内彻底删除项目副本。
-此项目为bash一键脚本，其中涉及到的任何软件版权和责任归原作者所有。
+| [一键安装 WireGuard 脚本](https://github.com/hongwenjun/vps_setup/blob/master/Wireguard/README.md) |[一键安装 Shadowsocks 脚本](https://github.com/hongwenjun/vps_setup/blob/master/shadowsocks/README.md) | [V2Ray 官方一键脚本](https://github.com/hongwenjun/vps_setup/blob/master/v2ray/README.md) |
+| :------:| :------: | :------: |
+| wget -qO- git.io/fptwc \| bash | bash <(curl -L -s git.io/fhExJ) update | bash <(curl -L -s https://install.direct/go.sh) |
 
-## 友情提示：
-在中国境内使用、传播、售卖、免费分享等任何翻墙服务，都是违法的。
-如果你在中国境内使用、测试此项目脚本，或者使用此脚本搭建服务器发生以上违法行为，都有违作者意愿！
-你必须立刻停止此行为！并删除脚本！
+![](https://raw.githubusercontent.com/hongwenjun/vps_setup/master/img/vps.sh.png)
 
-### 一键安装shadowsocks-libev脚本 For Debian_9  Ubuntu  Centos_7
-```
-#  一键安装shadowsocks-libev
-wget -qO- git.io/fhExJ | bash
-```
-### CentOS 7 测试 GCP和Vultr 都能自动升级内核，如果辣鸡要升级内核
-	yum install -y wget vim             # Cetos 安装 wget 和 vim 工具
-	wget -qO wg.sh git.io/fhnhS && bash wg.sh kernel    # Centos 升级内核命令
+| WireGuard 管理 | bash wgmtu | 卸载命令 | bash wgmtu remove |
+| :------:| :------: | :------:| :------: |
 
-### 增加功能  <<添加/删除 WireGuard Peer 客户端管理 >>
+|V2Ray 卸载命令 | bash <(curl -L -s https://install.direct/go.sh) --remove |
+| :------:| :------: |
+
+
+### 严重声明和友情提示：
+- 此项目仅限于技术交流和探讨，在您测试完毕后必须在1秒钟内彻底删除项目副本。此项目为bash一键脚本，其中涉及到的任何软件版权和责任归原作者所有。
+- 在中国境内使用、传播、售卖、免费分享等任何翻墙服务，都是违法的。如果你在中国境内使用、测试此项目脚本，或者使用此脚本搭建服务器发生以上违法行为，都有违作者意愿！你必须立刻停止此行为！并删除脚本！
+
+### [OpenWRT安装WireGuard 配置 Udp2Raw+UdpSpeeder+WireGuard](https://github.com/hongwenjun/vps_setup/blob/master/openwrt-18.06.2/README.md)
+![](https://raw.githubusercontent.com/hongwenjun/vps_setup/master/openwrt-18.06.2/openwrt_udptools.png)
+
+### V2Ray 和 Shadowsocks 配置显示二维码  短网址: https://git.io/v2ray.ss
+![](https://raw.githubusercontent.com/hongwenjun/vps_setup/master/v2ray/v2ray.ss.png)
+
+### WireGuard 管理使用命令 bash wgmtu    短网址: https://git.io/wgmtu
 [![点击图片链接视频演示](https://raw.githubusercontent.com/hongwenjun/vps_setup/master/img/wgmtu.png)](https://youtu.be/iOnAeWRvSQI)
+
+### Shadowsocks 配置使用: 添加命令行到 /etc/rc.local
+```
+# -p 端口 -k 密码 -m 协议 -s 服务IP
+ss-server -s 0.0.0.0 -p 40000 -k ${PASSWORD} -m aes-256-gcm -t 300 >> /var/log/ss-server.log &
+```
+
+### V2ray 显示官方服务端配置
+```
+cat /etc/v2ray/config.json
+```
+
+### V2RAY基于NGINX的[VMESS+WS+TLS+Website](https://git.io/v2ray.nginx)手工配置原理
+- 短网址: https://git.io/v2ray.nginx
+
+----
 
 ### 一键安装wireguard 参考演示视频集合
 
@@ -37,55 +54,6 @@ wget -qO- git.io/fhExJ | bash
 | [![ScreenShot](https://raw.githubusercontent.com/hongwenjun/vps_setup/master/img/iptables_ytb.jpg)](https://youtu.be/Jb3b8SbFQLM) | [![ScreenShot](https://raw.githubusercontent.com/hongwenjun/vps_setup/master/img/winkcp_ytb.jpg)](https://youtu.be/HjGO2sAPOFM) | [![ScreenShot](https://raw.githubusercontent.com/hongwenjun/vps_setup/master/img/gcp_ssh_key.jpg)](https://youtu.be/qhwK5XUJeWE)|
 | [![ScreenShot](https://raw.githubusercontent.com/hongwenjun/vps_setup/master/img/wg5clients.jpg)](https://youtu.be/TOaihmhrYQY) | [![ScreenShot](https://raw.githubusercontent.com/hongwenjun/vps_setup/master/img/tel_pc.jpg)](https://youtu.be/O__RsZewA60) | [![ScreenShot](https://raw.githubusercontent.com/hongwenjun/vps_setup/master/img/ss_wg.jpg)](https://youtu.be/-cfuQSaJb5w)|
 
-###  一键 WireGuard 多用户配置共享脚本
-```
-# 一键 WireGuard 多用户配置共享脚本
-wget -qO- https://git.io/fpnQt | bash
-
-```
-![](https://raw.githubusercontent.com/hongwenjun/img/master/ss_wg_speed.webp)
-
-### ----------------- 分割线以下可以不看 ------------------
-
-### 导出到客户端配置，修改实际的IP，修改成实际端口号
-```
-# 查询WireGuard状态
-wg
-
-# 显示配置文件
-cat /etc/wireguard/client.conf
-```
-### 使用命令行显示配置和生成二维码
-![](https://raw.githubusercontent.com/hongwenjun/img/master/qrencode.png)
-```
-# 文本显示一个配置文件
-cat wg_vultr_5.conf
-
-# 把配置文件使用通道传到二维码软件
-# -o- 表示显示在屏幕 -t utf8 文本格式
-cat wg_vultr_5.conf  | qrencode -o- -t utf8
-```
-### 遇到wg连接主机而没有流量，使用 Ip addr 命令检查vps网卡是否是ensx，参考下面修改配置重启
-```
-#  一键脚本已经检查出vultr主机，自动修改配置，不用再手工运行
-#  vultr 服务商的主机默认网卡是 ens3，使用下面命令修改配置
-sed -i "s/eth0/ens3/g"  /etc/wireguard/wg0.conf
-reboot
-
-#  GCP 香港 Ubuntu系统 默认网卡是 ens4，使用下面命令修改配置(脚本已经自动修改)
-#  GCP 香港 Ubuntu系统 没带python，不能开启临时web下载，可以 apt install -y python 安装
-sed -i "s/eth0/ens4/g"  /etc/wireguard/wg0.conf
-reboot
-
-# 原来的 iptables 防火墙规则
-PostUp   = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -A FORWARD -o wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o ens3 -j MASQUERADE
-PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -D FORWARD -o wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o ens3 -j MASQUERADE
-
-# 测试新的路由防火墙规则
-PostUp   = iptables -I FORWARD -i wg0 -j ACCEPT; iptables -I FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
-PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -D FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
-
-```
 
 ### Telegram 代理 MTProxy Go版 一键脚本(源:逗比网)
 ```
@@ -115,24 +83,26 @@ wget -qO- git.io/fxxlb | bash
 wget -qO- https://git.io/fp4jf | bash
 ```
 ----
+
+
 ### Debian或Ubuntun mini版 wget下载证书无法验证
 	apt-get install -y ca-certificates
 
-# Debian远程SSH汉字utf-8乱码解决
+### Debian远程SSH汉字utf-8乱码解决
 	apt-get  install locales
 	dpkg-reconfigure locales
 
-# 查看默认字符集是否是en_US.UTF-8
+### 查看默认字符集是否是en_US.UTF-8
 	vim /etc/default/locale
 	LANG=en_US.UTF-8
 
-# vim和bash高亮,tmux 配置
+### vim和bash高亮,tmux 配置
 ```
 wget -O .vimrc --no-check-certificate https://raw.githubusercontent.com/hongwenjun/srgb/master/vim/_vimrc
 wget -O .bashrc --no-check-certificate https://raw.githubusercontent.com/hongwenjun/srgb/master/vim/_bashrc
 wget -O .tmux.conf --no-check-certificate https://raw.githubusercontent.com/hongwenjun/tmux_for_windows/master/.tmux.conf
 ```
-# 修改默认主页地址 和 目录索引显示
+### 修改默认主页地址 和 目录索引显示
 ```
 $ vim /etc/nginx/sites-enabled/default
 root /var/www;
@@ -173,7 +143,7 @@ tar -czv -T filelist -f ss_frp.tar.gz
 -T 选项可以指定包含要备份的文件列表
 ```
 
-## 搬迁备份文件，使用wget
+### 搬迁备份文件，使用wget
 - 可以先不删除原来机器，新建立机器使用wget把备份文件挪过去
 - 本笔记，由于使用Vultr_IPV6的机器，所以使用wget先下载到本地电脑了
 
@@ -193,4 +163,41 @@ systemctl enable brook
 systemctl enable shadowsocks-go
 
 systemctl disable frps #禁止的脚本
+```
+
+### https://git.io  自定义短域名链接
+```
+curl -i https://git.io -F "url=https://raw.githubusercontent.com/hongwenjun/vps_setup/master/vps.sh"  -F "code=vps.sh"
+
+####   返回信息
+HTTP/1.1 201 Created
+Server: Cowboy
+Connection: keep-alive
+Date: Fri, 08 Mar 2019 04:47:37 GMT
+Status: 201 Created
+Content-Type: text/html;charset=utf-8
+Location: https://git.io/vps.sh
+Content-Length: 68
+X-Xss-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Runtime: 0.193189
+X-Node: 4c602b07-61d9-41e0-bee8-654fbdc36e98
+X-Revision: 392798d237fc1aa5cd55cada10d2945773e741a8
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Via: 1.1 vegur
+
+https://raw.githubusercontent.com/hongwenjun/vps_setup/master/vps.sh
+
+```
+
+### Git pull 强制覆盖本地文件
+```
+git fetch --all
+git reset --hard origin/master
+git pull
+git fetch origin master
+git merge origin/master
+git merge origin/master --allow-unrelated-histories
+git diff
 ```
